@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #123b72;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.header {
+    min-height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 40, 90, 0.08);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+}
+
+.medical-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.heart-logo {
+    width: 38px;
+    height: 34px;
+    background: linear-gradient(135deg, #08a9f5, #1555e8);
+    position: relative;
+    transform: rotate(-45deg);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-logo::before,
+.heart-logo::after {
+    content: "";
+    position: absolute;
+    width: 38px;
+    height: 34px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart-logo::before {
+    top: -19px;
+    left: 0;
+}
+
+.heart-logo::after {
+    top: 0;
+    left: 19px;
+}
+
+.ecg {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 17px;
+    transform: rotate(45deg);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #123b72;
+}
+
+.logo-text b {
+    color: #079ee8;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    font-family: 'Times New Roman', Georgia, serif;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #29415c;
+    font-size: 17px;
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #087ee8;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover {
+    color: #087ee8;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+
+
+/* =========================
+   DOCTORS SECTION
+========================= */
+
+.doctors-section {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 35px 30px 45px;
+}
+
+/* Section Heading */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.sub-title {
+    display: block;
+    color: #087ee8;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+.main-heading {
+    color: #11335d;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.description {
+    max-width: 650px;
+    color: #556070;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* View All Button */
+
+.btn-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #087ee8;
+    border: 1px solid #087ee8;
+    border-radius: 22px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.btn-view-all:hover {
+    background: #087ee8;
+    color: #ffffff;
+}
+
+/* =========================
+   DOCTOR GRID
+========================= */
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Doctor Card */
+
+.doctor-card {
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #e6e9ed;
+    border-radius: 11px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.045);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* Doctor Image */
+
+.doc-img-box {
+    width: 100%;
+    height: 290px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.doc-img-box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.35s ease;
+}
+
+.doctor-card:hover .doc-img-box img {
+    transform: scale(1.035);
+}
+
+/* =========================
+   DOCTOR INFORMATION
+========================= */
+
+.doc-info {
+    padding: 14px 15px 17px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+}
+
+/* Name and Status on Same Line */
+
+.doctor-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.doctor-title-row h3 {
+    margin: 0;
+    color: #102c50;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+/* Doctor Specialty */
+
+.specialty {
+    margin: 0 0 10px;
+    color: #59677b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Department Badge */
+
+.doc-dept {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    margin-bottom: 7px;
+    border-radius: 20px;
+    background: #eef6ff;
+    color: #0870e8;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.doc-dept i {
+    font-size: 12px;
+}
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    line-height: 1.2;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Small Dot */
+
+.dot {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* Busy Now - Red */
+
+.status-badge.busy {
+    color: #d32f38;
+    background: #fff0f0;
+}
+
+/* Next Slot - Yellow */
+
+.status-badge.next-slot {
+    color: #986000;
+    background: #fff4d8;
+}
+
+/* Available Now - Green */
+
+.status-badge.available {
+    color: #078443;
+    background: #e6f7ec;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience-section {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.experience-section .section-title {
+    margin: 0 0 5px;
+    color: #102c50;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.experience-text {
+    margin: 0;
+    color: #43536a;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================
+   BOOK NOW BUTTON
+========================= */
+
+.book-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 114px;
+    min-height: 35px;
+    margin-top: auto;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 22px;
+    background: #1971ed;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 3px 9px rgba(25, 113, 237, 0.16);
+    transition: background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.book-btn:hover {
+    background: #0959c9;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+    .header {
+        padding: 12px 22px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .doctors-section {
+        padding: 30px 22px 40px;
+    }
+
+    .doctors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .doc-img-box {
+        height: 320px;
+    }
+
+    .doctor-title-row h3 {
+        font-size: 15px;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 12px 18px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .doctors-section {
+        padding: 25px 15px 35px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .main-heading {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .doctors-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .doc-img-box {
+        height: 340px;
+    }
+
+    .doc-info {
+        padding: 16px;
+    }
+
+    .doctor-title-row h3 {
+        font-size: 15px;
+    }
+
+    .experience-text {
+        font-size: 12px;
+    }
+}
+
+.doctor-card .book-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 42px;
+    margin: auto auto 0;
+    background: linear-gradient(135deg, #1684ff, #075ce5);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(8, 105, 230, 0.22);
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.doctor-card .book-btn:hover {
+    background: linear-gradient(135deg, #0869e8, #0348bd);
+    box-shadow: 0 8px 20px rgba(8, 105, 230, 0.35);
+    transform: translateY(-3px);
+}
+
+.doctor-card .book-btn:active {
+    transform: scale(0.96);
+}
+
+.doctor-card .doc-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.doctor-card .book-btn {
+    align-self: center;
+    margin-top: auto;
+}
+
+.doctor-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.doctor-card .doc-info {
+    flex: 1;
+}
