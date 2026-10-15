@@ -134,8 +134,14 @@ body {
     text-decoration: none;
     display: inline-block;
 }
+.learn-btn{
+    color: black;
+    border-radius: 25px;
+    text-align: center;
+    padding: 8px 16px;
+}
 
-.book-btn:hover, .appointment:hover {
+.book-btn:hover.appointment:hover {
     background: #066bc4;
     transform: translateY(-2px);
 }
